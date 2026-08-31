@@ -14,7 +14,7 @@ class Solution:
                 if first:
                     mini = min(mini, i-lastCP)
                 lastCP = i
-                if not first: first = i
+                if not first: first = i 
             i += 1
             preVal = temp.val
             temp = temp.next
