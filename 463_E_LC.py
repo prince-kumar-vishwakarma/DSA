@@ -24,6 +24,20 @@ class Solution:
                     dfs(i,j)
                     return ans
 
+        #--------Sol 2:- Washroom me Click kiya--------------
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == 0:
+                    continue
+                para = 4
+                for x,y in directions:
+                    nx,ny = x+i,y+j
+                    if 0<=nx<n and 0<=ny<m and grid[nx][ny] == 1:
+                        para -= 1
+                ans += para
+                    
+        return ans
+
 
 
 
