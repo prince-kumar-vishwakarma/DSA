@@ -11,5 +11,15 @@ class Solution:
                     cur.append(nums[j])
             ans.append(cur)
         return ans
-
-        
+        #----------- another sol--------
+        def sub(inp, out, ans):
+            if not inp:
+                return ans.append(out[:])
+            out.append(inp[0])
+            inp = inp[1:]
+            sub(inp, out, ans)
+            out.pop()
+            sub(inp, out, ans)
+        ans = []
+        sub(nums, [], ans)
+        return ans
