@@ -9,7 +9,7 @@ class Solution:
         while l<=r:
             mid = (l+r)>>1
             if nums[l]<=nums[r]:
-                if mini>nums[mid]:
+                if mini>nums[l]:
                     mini = nums[l]
                     minIdx = l
                 break
