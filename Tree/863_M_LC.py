@@ -1,5 +1,3 @@
-# 863. All Nodes Distance K in Binary Tree
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -20,25 +18,23 @@ class Solution:
                 parent[node.right.val] = node
                 queue.append(node.right)
         queue = deque([target])
-        visited = [target.val]
+        visited = {target.val}
         while k and queue:
             n = len(queue)
             for _ in range(n):
                 node = queue.popleft()
                 if node.left and node.left.val not in visited:
-                    visited.append(node.left.val)
+                    visited.add(node.left.val)
                     queue.append(node.left)
                 if node.right and node.right.val not in visited:
-                    visited.append(node.right.val)
+                    visited.add(node.right.val)
                     queue.append(node.right)
                 if node.val in parent and parent[node.val].val not in visited:
-                    visited.append(parent[node.val].val)
+                    visited.add(parent[node.val].val)
                     queue.append(parent[node.val])
             k -= 1
-        ans = []
-        while queue:
-            ans.append(queue.popleft().val)
-        return ans
+        
+        return [node.val for node in queue]
 
 
         
