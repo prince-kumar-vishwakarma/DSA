@@ -19,6 +19,10 @@ class Solution:
                         changed = True
             if not changed: break
         
+        for u, v, wt in edges:
+            if dist[u] != INF and dist[u] + wt < dist[v]:
+                return [-1]
+                
         return dist
 
 
